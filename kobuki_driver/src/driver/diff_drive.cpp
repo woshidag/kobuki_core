@@ -32,9 +32,9 @@ DiffDrive::DiffDrive() :
 //  v(0.0), w(0.0), // command velocities, in [m/s] and [rad/s]
   radius(0.0), speed(0.0), // command velocities, in [mm] and [mm/s]
   point_velocity(2,0.0), // command velocities, in [m/s] and [rad/s]
-  bias(0.23), // wheelbase, wheel_to_wheel, in [m]
-  wheel_radius(0.035), // radius of main wheel, in [m]
-  tick_to_rad(0.002436916871363930187454f),
+  bias(0.33), // wheelbase, wheel_to_wheel, in [m]
+  wheel_radius(0.0625), // radius of main wheel, in [m]
+  tick_to_rad(0.01570796326f),//tick_to_rad = (2 * pi / tick_per_revolution) -- tick per revolution is 400  
   diff_drive_kinematics(bias, wheel_radius)
 {}
 
