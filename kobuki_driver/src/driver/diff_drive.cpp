@@ -13,6 +13,8 @@
 
 #include "../../include/kobuki_driver/modules/diff_drive.hpp"
 
+#define CALIBRATION 0.82935
+
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/
@@ -32,7 +34,7 @@ DiffDrive::DiffDrive() :
 //  v(0.0), w(0.0), // command velocities, in [m/s] and [rad/s]
   radius(0.0), speed(0.0), // command velocities, in [mm] and [mm/s]
   point_velocity(2,0.0), // command velocities, in [m/s] and [rad/s]
-  bias(0.33), // wheelbase, wheel_to_wheel, in [m]
+  bias(0.335), // wheelbase, wheel_to_wheel, in [m]
   wheel_radius(0.0625), // radius of main wheel, in [m]
   tick_to_rad(0.01570796326f),//tick_to_rad = (2 * pi / tick_per_revolution) -- tick per revolution is 400  
   diff_drive_kinematics(bias, wheel_radius)
@@ -84,7 +86,7 @@ void DiffDrive::update(const uint16_t &time_stamp,
   last_rad_right += tick_to_rad * right_diff_ticks;
 
   // TODO this line and the last statements are really ugly; refactor, put in another place
-  pose_update = diff_drive_kinematics.forward(tick_to_rad * left_diff_ticks, tick_to_rad * right_diff_ticks);
+  pose_update = diff_drive_kinematics.forward(tick_to_rad * left_diff_ticks * CALIBRATION, tick_to_rad * right_diff_ticks * CALIBRATION);
 
   if (curr_timestamp != last_timestamp)
   {
