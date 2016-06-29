@@ -94,7 +94,7 @@ namespace kobuki {
     if((mid & DockStationIRState::FAR_CENTER) || (mid & DockStationIRState::NEAR_CENTER))
     {
       next_state = RobotDockingState::ALIGNED;
-      next_vx = -0.05;
+      next_vx = 0.05;
       next_wz = 0.0;
     }
     // robot is located left side of dock
@@ -157,7 +157,7 @@ namespace kobuki {
       // turn right, CW until get right signal from left sensor
       if(left & (DockStationIRState::FAR_RIGHT + DockStationIRState::NEAR_RIGHT)) {
         next_state = RobotDockingState::GET_STREAM;
-        next_vx = -0.5;
+        next_vx = 0.5;
         next_wz = 0.0;
       }
       else {
@@ -172,7 +172,7 @@ namespace kobuki {
       if(right & (DockStationIRState::FAR_LEFT + DockStationIRState::NEAR_LEFT))
       {
         next_state = RobotDockingState::GET_STREAM;
-        next_vx = -0.5;
+        next_vx = 0.5;
         next_wz = 0.0;                                   
       }
       else {
@@ -214,7 +214,7 @@ namespace kobuki {
       }
       else {
         next_state = RobotDockingState::GET_STREAM;
-        next_vx = -0.05;
+        next_vx = 0.05;
         next_wz = 0.0;
       }
     }
@@ -228,7 +228,7 @@ namespace kobuki {
       }
       else {
         next_state = RobotDockingState::GET_STREAM;
-        next_vx = -0.05;
+        next_vx = 0.05;
         next_wz = 0.0;
       }
     }
@@ -262,37 +262,37 @@ namespace kobuki {
       {
         debug_str = "AlignedNearCenter";
         next_state = RobotDockingState::ALIGNED_NEAR;
-        next_vx = -0.05;
+        next_vx = 0.05;
         next_wz = 0.0;
       }
       else if(mid & DockStationIRState::NEAR_LEFT) {
         debug_str = "AlignedNearLeft";
         next_state = RobotDockingState::ALIGNED_NEAR;
-        next_vx = -0.05;
+        next_vx = 0.05;
         next_wz = 0.1;
       }
       else if(mid & DockStationIRState::NEAR_RIGHT) {
         debug_str = "AlignedNearRight";
         next_state = RobotDockingState::ALIGNED_NEAR;
-        next_vx = -0.05;
+        next_vx = 0.05;
         next_wz = -0.1;
       }
       else if(((mid & DockStationIRState::FAR) == DockStationIRState::FAR_CENTER) || ((mid & DockStationIRState::FAR) == DockStationIRState::FAR)) {
         debug_str = "AlignedFarCenter";
         next_state = RobotDockingState::ALIGNED_FAR;
-        next_vx = -0.1;
+        next_vx = 0.1;
         next_wz = 0.0;
       }
       else if(mid & DockStationIRState::FAR_LEFT) {
         debug_str = "AlignedFarLeft";
         next_state = RobotDockingState::ALIGNED_FAR;
-        next_vx = -0.1;
+        next_vx = 0.1;
         next_wz = 0.3;
       }
       else if(mid & DockStationIRState::FAR_RIGHT) {
         debug_str = "AlignedFarRight";
         next_state = RobotDockingState::ALIGNED_FAR;
-        next_vx = -0.1;
+        next_vx = 0.1;
         next_wz = -0.3;
       }
       else {
