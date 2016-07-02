@@ -13,7 +13,7 @@
 
 #include "../../include/kobuki_driver/modules/diff_drive.hpp"
 
-#define CALIBRATION (0.82935 * 1.01)
+#define CALIBRATION (1.05399844)
 
 /*****************************************************************************
 ** Namespaces
