@@ -181,6 +181,11 @@ namespace kobuki {
         next_wz = 0.33;
       }
     }
+    else {
+      next_state = RobotDockingState::IDLE;
+      next_vx = 0.0;
+      next_wz = 0.66;
+    }
 
     nstate = next_state;
     nvx = next_vx;
