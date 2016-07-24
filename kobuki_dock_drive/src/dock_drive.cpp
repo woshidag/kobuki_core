@@ -273,7 +273,7 @@ void DockDrive::updateVelocity(const std::vector<unsigned char>& signal_filt, co
       break;
   }
 
-  setStateVel(new_state, new_vx, new_wz);
+  setStateVel(new_state, -new_vx, new_wz);
   state_str = ROBOT_STATE_STR[new_state];
 }
 
