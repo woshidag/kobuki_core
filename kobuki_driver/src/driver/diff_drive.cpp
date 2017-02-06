@@ -13,7 +13,8 @@
 
 #include "../../include/kobuki_driver/modules/diff_drive.hpp"
 
-#define CALIBRATION (1.05399844)
+//#define CALIBRATION (1.011838502)
+#define CALIBRATION (1.07)
 
 /*****************************************************************************
 ** Namespaces
@@ -34,10 +35,11 @@ DiffDrive::DiffDrive() :
 //  v(0.0), w(0.0), // command velocities, in [m/s] and [rad/s]
   radius(0.0), speed(0.0), // command velocities, in [mm] and [mm/s]
   point_velocity(2,0.0), // command velocities, in [m/s] and [rad/s]
-  bias(0.335), // wheelbase, wheel_to_wheel, in [m]
+  bias(0.325), // wheelbase, wheel_to_wheel, in [m]
   wheel_radius(0.0625), // radius of main wheel, in [m]
   // tick_to_rad(0.01570796326f),//tick_to_rad = (2 * pi / tick_per_revolution) -- tick per revolution is 400  
-  tick_to_rad(0.012271846f),//tick_to_rad = (2 * pi / tick_per_revolution) -- tick per revolution is 512  
+  // tick_to_rad(0.012271846f),//tick_to_rad = (2 * pi / tick_per_revolution) -- tick per revolution is 512  
+  tick_to_rad(0.008525353f),//tick_to_rad = (2 * pi / tick_per_revolution) -- tick per revolution is 737
   diff_drive_kinematics(bias, wheel_radius)
 {}
 
